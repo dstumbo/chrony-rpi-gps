@@ -1,5 +1,5 @@
 # chrony-rpi-gps
-chrony on rpi using Adafruit Ultimate GPS hat pps
+chrony on rpi using Adafruit Ultimate GPS hat for NMEA time and pps
 
 A. Apparently in buster, when gpsd uses ttyAMA0 (at least) it assumes the pps device. do not need to modify config to add it (just enable the -n parameter). In fact, when I add it to the command line I see it the pps lines doubled in the gpsmon output.  
 B. Apparently chrony for raspian buster includes pps support. enabling it there works after just apt-get install chrony (without a compile). I could never make the passthrough from gpsd to work. Got it on first try with chrony.  
