@@ -42,14 +42,14 @@ Steps for headless Raspian Buster Lite on RPI 3B+:
 14. sudo rm /etc/dhcp/dhclient-exit-hooks.d/timesyncd
 15. sudo rm /lib/dhcpcd/dhcpcd-hooks/50-ntp.conf (might not exist)
 16. sudo rm /var/lib/ntp/ntp.conf.dhcp (might not exist)  
-17. edit /etc/default/gpsd to add turn off usbauto, add serial device and option -n (see example file)
-?? edit chrony config ?
-17. Make sure your antenna is outside (really!), with good sky view. This will greatly speed up/make possible acquisition of a fix good enough for pps. I never saw the WAAS sats with the antenna indoors on a south-facing windowsill, and my pps came and went randomly.
-18. shutdown, power off, INSTALL GPS HAT, power on
-19. using this approach, NMEA output will be on ttyAMA0. run gpsmon to see it (like this).  
-20. Verify that GPS gets a 4D fix and goes to quality 2 (meaning it is using WAAS satellites). This may take 30 or more minutes, especially the first time before the RTC is correct.
-21. after GPS hat LED flashing drops to once every 15 sec, verify pps: sudo ppstest /dev/pps0
-22. Test chrony: run chronyc sources -v. After a few minutes, running it should produce a display like this:
-23. Test chrony: run chronyc sourcestats -v. After a few minutes, running it should produce a display like this:
-24. From another (linux or OS X) machine, test from the command line: ntpdate -q rpiname.local
-25. Set your computer to use the rpi as its NTP server. Check that it works.  (out of scope) 
+17. edit /etc/default/gpsd to add turn off usbauto, add serial device and option -n (see example file)  
+18. edit /etc/chrony/chrony.conf to choose ntp pool, configure initial slewing and add the GPS and PPS sources (see example file)
+19. Make sure your antenna is outside (really!), with good sky view. This will greatly speed up/make possible acquisition of a fix good enough for pps. I never saw the WAAS sats with the antenna indoors on a south-facing windowsill, and my pps came and went randomly.
+20. shutdown, power off, INSTALL GPS HAT, power on
+21. using this approach, NMEA output will be on ttyAMA0. run gpsmon to see it (like this).  
+22. Verify that GPS gets a 4D fix and goes to quality 2 (meaning it is using WAAS satellites). This may take 30 or more minutes, especially the first time before the RTC is correct.
+23. after GPS hat LED flashing drops to once every 15 sec, verify pps: sudo ppstest /dev/pps0
+24. Test chrony: run chronyc sources -v. After a few minutes, running it should produce a display like this:
+25. Test chrony: run chronyc sourcestats -v. After a few minutes, running it should produce a display like this:
+26. From another (linux or OS X) machine, test from the command line: ntpdate -q rpiname.local
+27. Set your computer to use the rpi as its NTP server. Check that it works.  (out of scope) 
