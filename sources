@@ -1,0 +1,18 @@
+210 Number of sources = 6
+
+  .-- Source mode  '^' = server, '=' = peer, '#' = local clock.
+ / .- Source state '*' = current synced, '+' = combined , '-' = not combined,
+| /   '?' = unreachable, 'x' = time may be in error, '~' = time too variable.
+||                                                 .- xxxx [ yyyy ] +/- zzzz
+||      Reachability register (octal) -.           |  xxxx = adjusted offset,
+||      Log2(Polling interval) --.      |          |  yyyy = measured offset,
+||                                \     |          |  zzzz = estimated error.
+||                                 |    |           \
+MS Name/IP address         Stratum Poll Reach LastRx Last sample               
+===============================================================================
+#- NMEA                          0   4   377    22    +18ms[  +18ms] +/-  257ms
+#* KPPS                          0   4   377    22   -286ns[-1243ns] +/-  232ns
+^- mis.wci.com                   2   6   377    50  +2189us[+2186us] +/-   55ms
+^- ntp.backplanedns.org          2   6   377    52  -8337us[-8341us] +/-  107ms
+^- ntp1.wiktel.com               1   6   377    51  +3814us[+3810us] +/-   40ms
+^- 69.36.182.57.west-datace>     2   6   377    51  -4057us[-4060us] +/-   81ms
