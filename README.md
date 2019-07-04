@@ -20,7 +20,7 @@ Steps for headless Raspian Buster Lite on RPI 3B+:
 
 1. use balena etcher to write buster lite to SD card (4G or larger)
 2. touch ssh in /boot (e.g. touch /media/dave/boot/ssh)
-3. copy wpa_supplicant.conf file into /boot (https://www.raspberrypi-spy.co.uk/2017/04/manually-setting-up-pi-wifi-using-wpa_supplicant-conf/). Edit with your wifi SSID and password. You can use: wpa_passphrase YOUR_SSID YOUR_PASSWORD to generate the hashed password instead of putting it in the file in cleartext.
+3. copy wpa_supplicant.conf file (see example file) into /boot (https://www.raspberrypi-spy.co.uk/2017/04/manually-setting-up-pi-wifi-using-wpa_supplicant-conf/). Edit with your wifi SSID and password. You can use: wpa_passphrase YOUR_SSID YOUR_PASSWORD to generate the hashed password instead of putting it in the file in cleartext.
 4. add dtoverlay=pi3-disable-bt at the end of /boot/config.txt
 5. turn off audio #dtparam=audio=on# in /boot/config.txt
 6. Add dtoverlay=pps-gpio,gpiopin=4 to the end of /boot/config.txt (or gpiopin=18 if so wired)
@@ -41,8 +41,8 @@ Steps for headless Raspian Buster Lite on RPI 3B+:
 13. remove ntp-servers from /etc/dhcp/dhclient.conf
 14. sudo rm /etc/dhcp/dhclient-exit-hooks.d/timesyncd
 15. sudo rm /lib/dhcpcd/dhcpcd-hooks/50-ntp.conf (might not exist)
-16. sudo rm /var/lib/ntp/ntp.conf.dhcp (might not exist)
-?? edit /etc/default/gpsd to add turn off usbauto, add serial device and option -n
+16. sudo rm /var/lib/ntp/ntp.conf.dhcp (might not exist)  
+17. edit /etc/default/gpsd to add turn off usbauto, add serial device and option -n (see example file)
 ?? edit chrony config ?
 17. Make sure your antenna is outside (really!), with good sky view. This will greatly speed up/make possible acquisition of a fix good enough for pps. I never saw the WAAS sats with the antenna indoors on a south-facing windowsill, and my pps came and went randomly.
 18. shutdown, power off, INSTALL GPS HAT, power on
