@@ -2,7 +2,7 @@
 Chrony+gpsd ntp server on raspian buster lite using Adafruit Ultimate GPS hat (product 2324) and Adafruit active external antenna (products 960 & 851) for NMEA time and pps
 
   
-A. Apparently chrony for raspian buster includes pps support. Enabling it there works after apt-get install chrony (e.g. without a compile). I could never make the passthrough from gpsd to work. Got it on first try with chrony.  
+A. Apparently chrony for raspian buster includes pps support. It works after simple apt-get install chrony (e.g. without a compile). I could never make the passthrough from gpsd to work. Got it on first try with chrony.  
 
 B. Good reference for gpsd/chrony: https://forristal.org/blog/2018/01/making-a-raspberry-pi-stratum-1-clock/  
 
