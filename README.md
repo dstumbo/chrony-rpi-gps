@@ -16,7 +16,7 @@ G. Need to determine if "-r" in gpsd config helps or hurts. Need to determine wh
 
 Steps for headless Raspian Buster Lite on RPI 3B+:
 
-0. Remove trace between pps pads on Ultimate GPS. Solder 560 ohm (or more, I'd use 1k if I had one handy but tested with 560) resistor across pps pads (this might prevent blowing things up when both the GPS and RPI try to drive GPIO4. Put RTC battery (any CR12xx) in GPS hat. The RTC is not directly accessible, but the GPS uses it to speed up warm starts etc. 
+0. Remove trace between pps pads on Ultimate GPS. Solder 560 ohm (or more, I'd use 1k if I had one handy but tested with 560) resistor across pps pads (this might prevent blowing things up when both the GPS and RPI try to drive GPIO4. Put RTC battery (any CR12xx) in GPS hat. The RTC is not directly accessible, but the GPS uses it to speed up warm starts etc. Do NOT plug it into the RPI yet.
 
 1. use balena etcher to write buster lite to SD card
 2. touch ssh in /boot
@@ -44,7 +44,8 @@ Steps for headless Raspian Buster Lite on RPI 3B+:
 ?? edit gpsd conf ?
 ?? edit chrony config ?
 17. Make sure your antenna is outside (really!), with good sky view. This will greatly speed up/make possible acquisition of a fix good enough for pps. I never saw the WAAS sats with the antenna indoors on a south-facing windowsill, and my pps came and went randomly.
-18. shutdown, power off, INSTALL GPS HAT
+18. shutdown, power off, INSTALL GPS HAT, power on
 19. using this approach, NMEA output will be on ttyAMA0. run gpsmon to see it. Verify that GPS gets a 4D fix and goes to quality 2 (meaning it is using WAAS satellites). This may take 30 or more minutes, especially the first time before the RTC is correct.
-20. after GPS hat LED flashing drops to 1/15 sec, verify pps: sudo ppstest /dev/pps0
-15. Disable NTP support in DHCP as in http://www.unixwiz.net/techtips/raspberry-pi3-gps-time.html
+20. after GPS hat LED flashing drops to once every 15 sec, verify pps: sudo ppstest /dev/pps0
+21. Test chrony: run chronyc sources -v. After a few minutes, running it should produce a display like this:
+22. Test chrony: run chronyc sourcestats -v. After a few minutes, running it should produce a display like this:
