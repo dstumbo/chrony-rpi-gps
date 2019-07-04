@@ -18,8 +18,8 @@ Steps for headless Raspian Buster Lite on RPI 3B+:
 
 0. Remove trace between pps pads on the Ultimate GPS hat. Solder a 560 ohm (or more, I'd use 1k if I had one handy but tested with 560) resistor across the pps pads (this might prevent blowing things up when both the GPS and RPI try to drive GPIO4. Put RTC battery (any CR12xx) in GPS hat. The RTC is not directly accessible, but the GPS uses it to speed up warm starts etc. Do NOT plug it into the RPI yet.
 
-1. use balena etcher to write buster lite to SD card
-2. touch ssh in /boot
+1. use balena etcher to write buster lite to SD card (4G or larger)
+2. touch ssh in /boot (e.g. touch /media/dave/boot/ssh)
 3. copy wpa_supplicant.conf file into /boot (https://www.raspberrypi-spy.co.uk/2017/04/manually-setting-up-pi-wifi-using-wpa_supplicant-conf/). Edit with your wifi SSID and password. You can use: wpa_passphrase YOUR_SSID YOUR_PASSWORD to generate the hashed password instead of putting it in the file in cleartext.
 4. add dtoverlay=pi3-disable-bt at the end of /boot/config.txt
 5. turn off audio #dtparam=audio=on# in /boot/config.txt
