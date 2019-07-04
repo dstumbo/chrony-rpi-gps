@@ -29,12 +29,13 @@ Steps for headless Raspian Buster Lite on RPI 3B+:
 9. sudo apt-get update/upgrade
 10. sudo raspi-config:  
 	a. set hostname  
-	b. local to en_US.UTF-8 UTF-8  
+	b. change locale to en_US.UTF-8 UTF-8  
 	c. set TZ to UTC  
 	d. turn off serial port login shell, enable serial hardware  
-	e. resize to fill SD card  
-	f. minimize display memory to 16M since we have no display  
-	g. reboot	
+	e. change password if desired
+	f. minimize display memory to 16M since we have no display
+	g. resize to fill SD card
+	h. reboot	
 11. sudo systemctl disable hciuart
 12. sudo apt-get install pps-tools, gpsd, gpsd-client, chrony
 13. remove ntp-servers from /etc/dhcp/dhclient.conf
