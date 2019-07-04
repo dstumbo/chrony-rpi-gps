@@ -1,0 +1,18 @@
+210 Number of sources = 6
+                             .- Number of sample points in measurement set.
+                            /    .- Number of residual runs with same sign.
+                           |    /    .- Length of measurement set (time).
+                           |   |    /      .- Est. clock freq error (ppm).
+                           |   |   |      /           .- Est. error in freq.
+                           |   |   |     |           /         .- Est. offset.
+                           |   |   |     |          |          |   On the -.
+                           |   |   |     |          |          |   samples. \
+                           |   |   |     |          |          |             |
+Name/IP Address            NP  NR  Span  Frequency  Freq Skew  Offset  Std Dev
+==============================================================================
+NMEA                       13   5   193   -129.538    238.291    -13ms    10ms
+KPPS                        6   4    79     +0.005      0.076    +85ns   540ns
+mis.wci.com                12   7   517     +0.416      5.933   +806us   824us
+ntp.backplanedns.org       11   6   516     -0.556      4.301  -8822us   569us
+ntp1.wiktel.com            12   8   517     -0.487      1.940  +3689us   220us
+69.36.182.57.west-datace>  12   8   517     -1.119      3.392  -4271us   417us
