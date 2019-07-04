@@ -40,9 +40,9 @@ Steps for headless Raspian Buster Lite on RPI 3B+:
 12. sudo apt-get install pps-tools gpsd gpsd-clients chrony
 13. remove ntp-servers from /etc/dhcp/dhclient.conf
 14. sudo rm /etc/dhcp/dhclient-exit-hooks.d/timesyncd
-15. sudo rm /lib/dhcpcd/dhcpcd-hooks/50-ntp.conf 
+15. sudo rm /lib/dhcpcd/dhcpcd-hooks/50-ntp.conf (might not exist)
 16. sudo rm /var/lib/ntp/ntp.conf.dhcp (might not exist)
-?? edit gpsd conf ?
+?? edit /etc/default/gpsd to add turn off usbauto, add serial device and option -n
 ?? edit chrony config ?
 17. Make sure your antenna is outside (really!), with good sky view. This will greatly speed up/make possible acquisition of a fix good enough for pps. I never saw the WAAS sats with the antenna indoors on a south-facing windowsill, and my pps came and went randomly.
 18. shutdown, power off, INSTALL GPS HAT, power on
