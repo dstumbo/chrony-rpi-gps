@@ -50,6 +50,6 @@ Steps for headless Raspian Buster Lite on RPI 3B+:
 22. Verify that GPS gets a 4D fix and goes to quality 2 (meaning it is using WAAS satellites). This may take 30 or more minutes, especially the first time before the RTC is correct.
 23. after GPS hat LED flashing drops to once every 15 sec, verify pps: sudo ppstest /dev/pps0. Should get a new line every second, with incrementing sequence numbers
 24. Test chrony: run chronyc sources -v. After a few minutes, you should get something like the example sources output file
-25. Test chrony: run chronyc sourcestats -v. After a few minutes, running it should produce a display like this:
+25. Test chrony: run chronyc sourcestats -v. After a few minutes, you should get something like the example sourcestats output file
 26. From another (linux or OS X) machine, test from the command line: ntpdate -q rpiname.local
 27. Set your computer to use the rpi as its NTP server. Check that it works.  (out of scope) 
