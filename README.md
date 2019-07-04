@@ -12,8 +12,6 @@ D. https://wiki.alpinelinux.org/wiki/Chrony_and_GPSD and http://robotsforrobotic
 
 E. Apparently kernel has or installs pps module automagically. No need to add the pps module manually.
 
-F. Need to determine if "-r" in gpsd config helps or hurts. Need to determine what to do with hw_clock (disable fake-hwclock?)
-
 Steps for headless Raspian Buster Lite on RPI 3B+:
 
 0. Remove trace between pps pads on the Ultimate GPS hat. Solder a 560 ohm (or more, I'd use 1k if I had one handy but tested with 560) resistor across the pps pads (this might prevent blowing things up when both the GPS and RPI try to drive GPIO4. Put RTC battery (any CR12xx) in GPS hat. The RTC is not directly accessible, but the GPS uses it to speed up warm starts etc. Do NOT plug it into the RPI yet.
