@@ -37,7 +37,7 @@ Steps for headless Raspian Buster Lite on RPI 3B+:
 	g. resize to fill SD card
 	h. reboot	
 11. sudo systemctl disable hciuart
-12. sudo apt-get install pps-tools, gpsd, gpsd-client, chrony
+12. sudo apt-get install pps-tools gpsd gpsd-clients chrony
 13. remove ntp-servers from /etc/dhcp/dhclient.conf
 14. sudo rm /etc/dhcp/dhclient-exit-hooks.d/timesyncd
 15. sudo rm /lib/dhcpcd/dhcpcd-hooks/50-ntp.conf 
