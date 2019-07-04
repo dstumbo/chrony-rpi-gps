@@ -46,13 +46,10 @@ Steps for headless Raspian Buster Lite on RPI 3B+:
 18. edit /etc/chrony/chrony.conf to choose ntp pool, configure initial slewing and add the GPS and PPS sources (see example file)
 19. Make sure your antenna is outside (really!), with good sky view. This will greatly speed up/make possible acquisition of a fix good enough for pps. I never saw the WAAS sats with the antenna indoors on a south-facing windowsill, and my pps came and went randomly.
 20. shutdown, power off, INSTALL GPS HAT, power on
-21. using this approach, NMEA output will be on ttyAMA0. run gpsmon to see it (like this).  
-
-
-
+21. using this approach, NMEA output will be on ttyAMA0. run gpsmon to see it (see example gpsmon output file)  
 22. Verify that GPS gets a 4D fix and goes to quality 2 (meaning it is using WAAS satellites). This may take 30 or more minutes, especially the first time before the RTC is correct.
-23. after GPS hat LED flashing drops to once every 15 sec, verify pps: sudo ppstest /dev/pps0
-24. Test chrony: run chronyc sources -v. After a few minutes, running it should produce a display like this:
+23. after GPS hat LED flashing drops to once every 15 sec, verify pps: sudo ppstest /dev/pps0. Should get a new line every second, with incrementing sequence numbers
+24. Test chrony: run chronyc sources -v. After a few minutes, you should get something like the example sources output file
 25. Test chrony: run chronyc sourcestats -v. After a few minutes, running it should produce a display like this:
 26. From another (linux or OS X) machine, test from the command line: ntpdate -q rpiname.local
 27. Set your computer to use the rpi as its NTP server. Check that it works.  (out of scope) 
