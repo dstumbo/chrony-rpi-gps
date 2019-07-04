@@ -50,4 +50,5 @@ Steps for headless Raspian Buster Lite on RPI 3B+:
 21. after GPS hat LED flashing drops to once every 15 sec, verify pps: sudo ppstest /dev/pps0
 22. Test chrony: run chronyc sources -v. After a few minutes, running it should produce a display like this:
 23. Test chrony: run chronyc sourcestats -v. After a few minutes, running it should produce a display like this:
-24. set another computer to use your rpi (rpiname.local) as its NTP server. Check that it works (out of scope) 
+24. From another (linux or OS X) machine, test from the command line: ntpdate -q rpiname.local
+25. Set your computer to use the rpi as its NTP server. Check that it works.  (out of scope) 
