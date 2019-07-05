@@ -1,8 +1,8 @@
 # chrony-rpi-gps
-Chrony+gpsd ntp server on raspian buster lite using Adafruit Ultimate GPS hat (product 2324) and Adafruit active external antenna (products 960 & 851) for NMEA time and pps
+Chrony+gpsd ntp server on raspbian buster lite using Adafruit Ultimate GPS hat (product 2324) and Adafruit active external antenna (products 960 & 851) for NMEA time and pps
 
   
-A. Apparently chrony for raspian buster includes pps support. It works after simple apt-get install chrony (e.g. without a compile). I could never make the passthrough from gpsd to work. Got it on first try with chrony.  
+A. Apparently chrony for raspbian buster includes pps support. It works after simple apt-get install chrony (e.g. without a compile). I could never make the passthrough from gpsd to work. Got it on first try with chrony.  
 
 B. Good reference for gpsd/chrony: https://forristal.org/blog/2018/01/making-a-raspberry-pi-stratum-1-clock/  
 
@@ -14,7 +14,7 @@ E. Apparently kernel has or installs pps module automagically. No need to add th
 
 F. install procedure (below) tested on RPI 3B+ (works). Resulting card tested on RPI 3B (works), and RPI zero WH (works).
 
-Steps for headless Raspian Buster Lite on RPI 3B+:
+Steps for headless Raspbian Buster Lite on RPI 3B+:
 
 0. Remove trace between pps pads on the Ultimate GPS hat. Solder a 560 ohm (or more, I'd use 1k if I had one handy but tested with 560) resistor across the pps pads (this might prevent blowing things up when both the GPS and RPI try to drive GPIO4. Put RTC battery (any CR12xx) in GPS hat. The RTC is not directly accessible, but the GPS uses it to speed up warm starts etc. Do NOT plug it into the RPI yet.
 
