@@ -12,7 +12,7 @@ D. https://wiki.alpinelinux.org/wiki/Chrony_and_GPSD and http://robotsforrobotic
 
 E. Apparently kernel has or installs pps module automagically. No need to add the pps module manually.
 
-F. install procedure (below) tested on RPI 3B+ (works). Resulting card tested on RPI 3B (works), and RPI zero WH (works).
+F. install procedure (below) tested on RPI 3B+ (works). Resulting card tested on RPI 4B (works), 3B (works), and RPI zero WH (works).
 
 Steps for headless Raspbian Buster Lite on RPI 3B+:
 
