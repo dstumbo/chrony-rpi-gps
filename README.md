@@ -26,7 +26,7 @@ Steps for headless Raspbian Buster Lite on RPI 3B+:
 6. Add dtoverlay=pps-gpio,gpiopin=4 to the end of /boot/config.txt (or gpiopin=18 if so wired)
 7. Put SD card in RPI and boot it
 8. Login over ssh: it will be ssh pi@raspberrypi.local if no name conflicts, otherwise find using newest dhcp lease
-9. sudo apt-get update/upgrade
+9. sudo apt-get update/upgrade: may need to do sudo apt-get update --allow-releaseinfo-change
 10. sudo raspi-config:  
 	a. set hostname  
 	b. change locale to en_US.UTF-8 UTF-8  
